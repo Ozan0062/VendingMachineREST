@@ -33,6 +33,10 @@ namespace VendingMachineREST.Controllers
             {
                 return BadRequest("Phone number already exists");
             }
+            if (_usersRepository.GetUsersEmail().Contains(newUser.Email))
+            {
+                return BadRequest("Email already exists");
+            }
             User? addedUser = _usersRepository.Add(newUser);
             try
             {
