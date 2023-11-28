@@ -29,6 +29,10 @@ namespace VendingMachineREST.Controllers
         [HttpPost]
         public ActionResult<User?> Post([FromBody] User newUser)
         {
+            if ( _usersRepository.GetUsersPhonenumber().Contains(newUser.MobileNumber))
+            {
+                return BadRequest("Phone number already exists");
+            }
             User? addedUser = _usersRepository.Add(newUser);
             try
             {
