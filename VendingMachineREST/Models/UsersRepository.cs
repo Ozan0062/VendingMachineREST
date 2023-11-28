@@ -11,15 +11,16 @@
 
         public User? Add(User user)
         {
+            user.CreatePassword();
             user.Validate();
-            _context.User.Add(user);
-            _context.SaveChanges();
+            _context?.User.Add(user);
+            _context?.SaveChanges();
             return user;
         }
 
         public IEnumerable<User?> GetAll(string? firstName = null, string? lastName = null, string? email = null, string? mobilePhone = null) 
         {
-            IEnumerable<User?> filteredUsers = _context.User;
+            IEnumerable<User> filteredUsers = _context.User;
             if (firstName != null)
             {
                 filteredUsers = filteredUsers.Where(u => u.FirstName == firstName);

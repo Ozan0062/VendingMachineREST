@@ -29,6 +29,7 @@ namespace VendingMachineREST.Models.Tests
         //{
         //    UsersRepository usersRepository = new UsersRepository(_context);
         //    User user = new User() { FirstName = "Silas", LastName = "Hansen", Email = "silashansen2@gmail.com", MobilePhone = "24681015" };
+        //    user.CreatePassword();
         //    usersRepository.Add(user);
         //    Assert.IsTrue(user.Id > 0);
         //}

@@ -16,8 +16,8 @@ namespace VendingMachineREST.Models
 
         public User() 
         {
-            Password = CreatePassword();
         }
+
 
         public string CreatePassword(int length = 8)
         {
@@ -30,6 +30,7 @@ namespace VendingMachineREST.Models
             }
             return res.ToString();
         }
+        // for løkke
 
         public void ValidateFirstName()
         {
