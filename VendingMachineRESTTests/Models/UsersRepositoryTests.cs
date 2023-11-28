@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VendingMachineREST.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace VendingMachineREST.Models.Tests
 {
@@ -28,8 +30,7 @@ namespace VendingMachineREST.Models.Tests
         //public void AddTest()
         //{
         //    UsersRepository usersRepository = new UsersRepository(_context);
-        //    User user = new User() { FirstName = "Silas", LastName = "Hansen", Email = "silashansen2@gmail.com", MobilePhone = "24681015" };
-        //    user.CreatePassword();
+        //    User user = new User() { FirstName = "Silas", LastName = "Hansen", Email = "silashansen1@gmail.com", MobileNumber = "24681014", Password = User.CreatePassword()};
         //    usersRepository.Add(user);
         //    Assert.IsTrue(user.Id > 0);
         //}
@@ -43,3 +44,6 @@ namespace VendingMachineREST.Models.Tests
         }
     }
 }
+
+
+

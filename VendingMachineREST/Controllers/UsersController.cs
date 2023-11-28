@@ -18,9 +18,9 @@ namespace VendingMachineREST.Controllers
         // GET: api/<UsersController>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
-        public ActionResult<IEnumerable<User>> Get([FromQuery] string? firstName, [FromQuery] string? lastName, [FromQuery] string? email, [FromQuery] string? mobilePhone)
+        public ActionResult<IEnumerable<User>> Get([FromQuery] string? firstName, [FromQuery] string? lastName, [FromQuery] string? email, [FromQuery] string? mobileNumber)
         {
-            return Ok(_usersRepository.GetAll(firstName, lastName, email, mobilePhone));
+            return Ok(_usersRepository.GetAll(firstName, lastName, email, mobileNumber));
         }
 
         // POST api/<UsersController>

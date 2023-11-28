@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace VendingMachineREST.Models
@@ -12,16 +15,18 @@ namespace VendingMachineREST.Models
 
         public string? Email { get; set; }
         public string? Password { get; set; }
-        public string? MobilePhone { get; set; }
+        public string? MobileNumber { get; set; }
 
-        public int length = 8;
+        [ForeignKey("UserId")]
+        public ICollection<Accounting> Accounting { get; set; }
+        public static int length = 8;
 
         public User() 
         {
         }
 
 
-        public string CreatePassword()
+        public static string CreatePassword()
         {
             const string valid = "UDLRM";
             StringBuilder res = new StringBuilder();
@@ -83,17 +88,17 @@ namespace VendingMachineREST.Models
                 throw new ArgumentException("Password must be 8 characters");
             }
         }
-        public void ValidateMobilePhone()
+        public void ValidateMobileNumber()
         {
-            if (MobilePhone == null)
+            if (MobileNumber == null)
             {
                 throw new ArgumentNullException("Mobile phone is required");
             }
-            if (MobilePhone.Length < 8)
+            if (MobileNumber.Length < 8)
             {
                 throw new ArgumentException("Mobile phone must be at least 8 characters");
             }
-            if (MobilePhone.Length > 13)
+            if (MobileNumber.Length > 13)
             {
                 throw new ArgumentException("Mobile phone must be maximum 13 characters");
             }
@@ -104,7 +109,7 @@ namespace VendingMachineREST.Models
             ValidateLastName();
             ValidateEmail();
             ValidatePassword();
-            ValidateMobilePhone();
+            ValidateMobileNumber();
         }
     }
 
