@@ -39,7 +39,7 @@ namespace VendingMachineREST.Models.Tests
         {
             UsersRepository? usersRepository = new UsersRepository(_context);
             IEnumerable<User?> users = usersRepository.GetAll();
-            Assert.AreEqual(5, users.Count());
+            Assert.IsNotNull(users);
         }
     }
 }

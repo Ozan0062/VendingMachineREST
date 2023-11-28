@@ -14,23 +14,24 @@ namespace VendingMachineREST.Models
         public string? Password { get; set; }
         public string? MobilePhone { get; set; }
 
+        public int length = 8;
+
         public User() 
         {
         }
 
 
-        public string CreatePassword(int length = 8)
+        public string CreatePassword()
         {
             const string valid = "UDLRM";
             StringBuilder res = new StringBuilder();
             Random rnd = new Random();
-            while (0 < length--)
+            for (int i = 0; i < length; i++)
             {
                 res.Append(valid[rnd.Next(valid.Length)]);
             }
             return res.ToString();
         }
-        // for løkke
 
         public void ValidateFirstName()
         {
