@@ -17,8 +17,6 @@ namespace VendingMachineREST.Models
         public string? Password { get; set; }
         public string? MobileNumber { get; set; }
 
-        [ForeignKey("UserId")]
-        public ICollection<Accounting> Accounting { get; set; }
         public static int length = 8;
 
         public User() 

@@ -15,7 +15,7 @@ namespace VendingMachineREST.Models.Tests
         public void ValidateTest()
         {
             User user = new User() { FirstName = "Silas", LastName = "Hansen", Email = "silas@gmail.com", MobileNumber = "24681014" };
-            Accounting accounting = new Accounting() { User = user, Amount = 1, Type = "M&M's"};
+            Accounting accounting = new Accounting() { UserId = 1, Amount = 1, Type = "M&M's"};
             accounting.Validate();
         }
 

@@ -24,15 +24,14 @@ namespace VendingMachineREST.Models.Tests
             _accountingsRepository = new AccountingsRepository(_context);
         }
 
-        //[TestMethod()]
-        //public void AddTest()
-        //{
-        //    AccountingsRepository accountingsRepository = new AccountingsRepository(_context);
-        //    User user = new User() { FirstName = "Silas", LastName = "Hansen", Email = "silas99@gmail.com", MobileNumber = "24681010", Password = User.CreatePassword() };
-        //    Accounting accounting = new Accounting() { User = user, Amount = 10, Type = "M&M's"};
-        //    accountingsRepository.Add(accounting);
-        //    Assert.IsTrue(accounting.Id > 0);
-        //}
+        [TestMethod()]
+        public void AddTest()
+        {
+            AccountingsRepository accountingsRepository = new AccountingsRepository(_context);
+            Accounting accounting = new Accounting() { UserId = 18, Amount = 10, Type = "M&M's" };
+            accountingsRepository.Add(accounting);
+            Assert.IsTrue(accounting.Id > 0);
+        }
 
         [TestMethod()]
         public void GetAllTest()

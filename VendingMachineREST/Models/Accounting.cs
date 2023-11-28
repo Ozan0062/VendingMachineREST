@@ -7,7 +7,7 @@ namespace VendingMachineREST.Models
     {
         public int Id { get; set; }
 
-        public User User { get; set; }
+        public int UserId { get; set; }
         public double Amount { get; set; }
         public string? Type { get; set; }
         public DateTime Date { get; set; } = DateTime.Today;
@@ -50,7 +50,7 @@ namespace VendingMachineREST.Models
 
         public void ValidateUserId()
         {
-            if (User == null)
+            if (UserId == null)
             {
                 throw new ArgumentNullException("User ID is required");
             }

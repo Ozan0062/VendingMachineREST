@@ -20,10 +20,16 @@ builder.Services.AddCors(options =>
     });
 });
 
-var optionBuilder = new DbContextOptionsBuilder<UsersDbContext>();
-optionBuilder.UseSqlServer("Data Source = mssql4.unoeuro.com; Initial Catalog =  ozanhs_dk_db_vending_machine; Persist Security Info = True; User ID = ozanhs_dk; Password = GcB6m5g4awRnbE29tyzp; TrustServerCertificate = True");
-UsersDbContext context = new UsersDbContext(optionBuilder.Options);
-builder.Services.AddSingleton(new UsersRepository(context));
+var userOptionBuilder = new DbContextOptionsBuilder<UsersDbContext>();
+userOptionBuilder.UseSqlServer("Data Source = mssql4.unoeuro.com; Initial Catalog =  ozanhs_dk_db_vending_machine; Persist Security Info = True; User ID = ozanhs_dk; Password = GcB6m5g4awRnbE29tyzp; TrustServerCertificate = True");
+UsersDbContext userContext = new UsersDbContext(userOptionBuilder.Options);
+builder.Services.AddSingleton(new UsersRepository(userContext));
+
+var accountingOptionBuilder = new DbContextOptionsBuilder<AccountingsDbContext>();
+accountingOptionBuilder.UseSqlServer("Data Source = mssql4.unoeuro.com; Initial Catalog =  ozanhs_dk_db_vending_machine; Persist Security Info = True; User ID = ozanhs_dk; Password = GcB6m5g4awRnbE29tyzp; TrustServerCertificate = True");
+AccountingsDbContext accountingsContext = new AccountingsDbContext(accountingOptionBuilder.Options);
+builder.Services.AddSingleton(new AccountingsRepository(accountingsContext));
+
 
 var app = builder.Build();
 
