@@ -16,6 +16,7 @@ namespace VendingMachineREST.Controllers
             _accountingsRepository = accountingsRepository;
         }
 
+        [ProducesResponseType(StatusCodes.Status200OK)]
         // GET: api/<AccountingsController>
         [HttpGet]
         public ActionResult<IEnumerable<Accounting>> Get()
@@ -23,6 +24,8 @@ namespace VendingMachineREST.Controllers
             return Ok(_accountingsRepository.GetAll());
         }
 
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         // POST api/<AccountingsController>
         [HttpPost]
         public ActionResult<Accounting> Post([FromBody] Accounting newAccounting)
