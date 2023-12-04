@@ -27,8 +27,16 @@ namespace VendingMachineREST.Controllers
         [HttpPost]
         public ActionResult<Accounting> Post([FromBody] Accounting newAccounting)
         {
-            Accounting addedAccounting = _accountingsRepository.Add(newAccounting);
-            return Created($"/api/accountings/{addedAccounting.Id}", addedAccounting);
+            try
+            {
+                Accounting addedAccounting = _accountingsRepository.Add(newAccounting);
+                return Created($"/api/accountings/{addedAccounting.Id}", addedAccounting);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
     }
