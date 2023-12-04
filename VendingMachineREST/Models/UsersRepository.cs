@@ -39,5 +39,14 @@
             }
             return filteredUsers;
         } 
+        public List<string>? GetUsersPhonenumber() 
+        {
+        return _context.User.Select(u => u.MobileNumber).ToList();
+        }
+
+        public List<string>? GetUsersEmail()
+        {
+            return _context.User.Select(u => u.Email).ToList();
+        }
     }
 }
