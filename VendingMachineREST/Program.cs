@@ -30,7 +30,6 @@ accountingOptionBuilder.UseSqlServer("Data Source = mssql4.unoeuro.com; Initial 
 AccountingsDbContext accountingsContext = new AccountingsDbContext(accountingOptionBuilder.Options);
 builder.Services.AddSingleton(new AccountingsRepository(accountingsContext));
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
