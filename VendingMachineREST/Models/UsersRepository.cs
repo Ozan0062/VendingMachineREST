@@ -39,6 +39,12 @@
             }
             return filteredUsers;
         } 
+
+        public User GetByPassword(string password)
+        {
+            return _context.User.Single(u => u.Password == password);
+        }
+
         public List<string>? GetUsersPhonenumber() 
         {
         return _context.User.Select(u => u.MobileNumber).ToList();

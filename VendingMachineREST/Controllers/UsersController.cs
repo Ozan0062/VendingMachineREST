@@ -23,6 +23,12 @@ namespace VendingMachineREST.Controllers
             return Ok(_usersRepository.GetAll(firstName, lastName, email, mobileNumber));
         }
 
+        [HttpGet("{password}")]
+        public ActionResult<User> GetByPassword([FromQuery] string password)
+        {
+            return Ok(_usersRepository.GetByPassword(password));
+        }
+
         // POST api/<UsersController>
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
