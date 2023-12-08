@@ -12,12 +12,12 @@ namespace VendingMachineREST.Models
             _context = context;
         }
 
-        public async Task SendMessage()
+        public async Task SendMessage(string phoneToSend, string nameToSend)
         {
             string username = "+4540688969";
             string password = "zZBhFeKR";
-            string tophonenumberwithcountrycode = "+4540688969";
-            string theMessage = $"Dit kodeord er: {generatedPassword}";
+            string tophonenumberwithcountrycode = $"+45{phoneToSend}";
+            string theMessage = $"Hej {nameToSend} Dit kodeord er: {generatedPassword}";
 
             try
             {
@@ -50,9 +50,11 @@ namespace VendingMachineREST.Models
         {
             user.Password = generatedPassword;
             user.Validate();
+            string numberToSend = user.MobileNumber;
+            string nameToSend = user.FirstName;
             _context.User.Add(user);
             _context.SaveChanges();
-            SendMessage();
+            SendMessage(numberToSend, nameToSend);
             return user;
         }
 
