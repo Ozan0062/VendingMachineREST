@@ -11,10 +11,12 @@
 
         public User? Add(User user)
         {
-            user.Password = User.CreatePassword();
+            string generatedPassword = User.CreatePassword();
+            user.Password = generatedPassword;
             user.Validate();
             _context.User.Add(user);
             _context.SaveChanges();
+            SMS.SendMessage();
             return user;
         }
 
