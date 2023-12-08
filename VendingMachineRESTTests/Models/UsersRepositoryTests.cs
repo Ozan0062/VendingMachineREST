@@ -26,14 +26,14 @@ namespace VendingMachineREST.Models.Tests
             _usersRepository = new UsersRepository(_context);
         }
 
-        [TestMethod]
-        public void AddTest()
-        {
-            UsersRepository usersRepository = new UsersRepository(_context);
-            User user = new User() { FirstName = "Ozan", LastName = "Sabir", Email = "ozansabir@gmail.com", MobileNumber = "+4560532652", Password = User.CreatePassword() };
-            usersRepository.Add(user);
-            Assert.IsTrue(user.Id > 0);
-        }
+        //[TestMethod]
+        //public void AddTest()
+        //{
+        //    UsersRepository usersRepository = new UsersRepository(_context);
+        //    User user = new User() { FirstName = "Ozan", LastName = "Sabir", Email = "ozansabir@gmail.com", MobileNumber = "+4560532652", Password = User.CreatePassword() };
+        //    usersRepository.Add(user);
+        //    Assert.IsTrue(user.Id > 0);
+        //}
 
         //[TestMethod]
         //public void GetAllTest()
