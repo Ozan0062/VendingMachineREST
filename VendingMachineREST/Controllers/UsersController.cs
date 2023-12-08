@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Runtime.CompilerServices;
 using VendingMachineREST.Models;
 
 
@@ -9,6 +10,7 @@ namespace VendingMachineREST.Controllers
     public class UsersController : ControllerBase
     {
         private UsersRepository _usersRepository;
+        
 
         public UsersController(UsersRepository usersRepository)
         {
