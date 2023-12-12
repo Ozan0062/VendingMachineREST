@@ -25,9 +25,15 @@ namespace VendingMachineREST.Controllers
             return Ok(_usersRepository.GetAll(firstName, lastName, email, mobileNumber));
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<User> GetById([FromRoute] int id)
+        {
+            return Ok(_usersRepository.GetById(id));
+        }
+
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [HttpGet("{password}")]
+        [HttpGet("password")]
         public ActionResult<User> GetByPassword([FromQuery] string password)
         {
             try
