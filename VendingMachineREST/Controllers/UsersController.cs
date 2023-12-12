@@ -26,13 +26,6 @@ namespace VendingMachineREST.Controllers
         }
 
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [HttpGet("{id}")]
-        public ActionResult<User> GetById(int id)
-        {
-            return Ok(_usersRepository.GetById(id));
-        }
-
-        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpGet("{password}")]
         public ActionResult<User> GetByPassword([FromQuery] string password)

@@ -80,11 +80,6 @@ namespace VendingMachineREST.Models
             return filteredUsers;
         } 
 
-        public User? GetById(int id)
-        {
-            return _context.User.Find(id);
-        }
-
         public User? GetByPassword(string password)
         {
             return _context.User.Single(u => u.Password == password);
