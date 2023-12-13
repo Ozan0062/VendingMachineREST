@@ -17,8 +17,8 @@ namespace VendingMachineREST.Models
             string username = "+4540688969";
             string password = "zZBhFeKR";
             string tophonenumberwithcountrycode = $"+45{phoneToSend}";
-            string theMessage = $"Hej {nameToSend}\nDit kodeord er: {generatedPassword}\n" +
-             $"U er piletast op, D er piletast ned, L er piletast venstre, R er piletast højre og M er enter\n\n";
+            string theMessage = $"Hej {nameToSend}\n\nDit kodeord er: {generatedPassword}\n\n" +
+             $"U er piletast op, D er piletast ned, L er piletast venstre, R er piletast højre og M er enter.\n\n";
 
             try
             {
