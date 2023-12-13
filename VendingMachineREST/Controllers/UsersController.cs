@@ -52,14 +52,15 @@ namespace VendingMachineREST.Controllers
         [HttpPost]
         public ActionResult<User?> Post([FromBody] User newUser)
         {
-            if ( _usersRepository.GetUsersPhonenumber().Contains(newUser.MobileNumber))
+            if (_usersRepository.GetUsersPhonenumber().Contains(newUser.MobileNumber))
             {
-                return BadRequest("Phone number already exists");
+                return BadRequest(new { Error = "Phone number already exists" });
             }
             if (_usersRepository.GetUsersEmail().Contains(newUser.Email))
             {
-                return BadRequest("Email already exists");
+                return BadRequest(new { Error = "Email already exists" });
             }
+
             User? addedUser = _usersRepository.Add(newUser);
             try
             {
@@ -67,11 +68,11 @@ namespace VendingMachineREST.Controllers
             }
             catch (ArgumentNullException ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { Error = ex.Message });
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { Error = ex.Message });
             }
         }
     }
