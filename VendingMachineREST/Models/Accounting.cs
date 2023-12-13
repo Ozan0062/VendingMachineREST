@@ -10,7 +10,7 @@ namespace VendingMachineREST.Models
         public int UserId { get; set; }
         public double Amount { get; set; }
         public string? Type { get; set; }
-        public DateOnly Date { get; set; } = DateOnly.MaxValue;
+        public DateTime Date { get; set; } = DateTime.Today;
 
         public Accounting()
         {
@@ -42,7 +42,7 @@ namespace VendingMachineREST.Models
             {
                 throw new ArgumentNullException("Date is required");
             }
-            if (Date > DateOnly.MaxValue)
+            if (Date > DateTime.Now)
             {
                 throw new ArgumentOutOfRangeException("Date cannot be in the future");
             }
