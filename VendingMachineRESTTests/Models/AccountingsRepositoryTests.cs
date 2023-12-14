@@ -28,7 +28,7 @@ namespace VendingMachineREST.Models.Tests
         public void AddTest()
         {
             AccountingsRepository accountingsRepository = new AccountingsRepository(_context);
-            Accounting accounting = new Accounting() { UserId = 32, Amount = 10, Type = "M&M's" };
+            Accounting accounting = new Accounting() { UserId = 33, Amount = 10, Type = "M&M's" };
             accountingsRepository.Add(accounting);
             Assert.IsTrue(accounting.Id > 0);
         }
