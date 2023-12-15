@@ -9,7 +9,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: corsName, policy =>
     {
-        policy.AllowAnyOrigin().
+        policy.WithOrigins("https://nice-rock-09b5d2203.4.azurestaticapps.net").
         AllowAnyMethod().
         AllowAnyHeader();
     });
