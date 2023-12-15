@@ -3,9 +3,11 @@ using VendingMachineREST.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var corsName = "AllowAll";
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: "AllowAll", policy =>
+    options.AddPolicy(name: corsName, policy =>
     {
         policy.AllowAnyOrigin().
         AllowAnyMethod().
@@ -35,7 +37,7 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-app.UseCors("AllowAll");
+app.UseCors(corsName);
 
 app.UseSwagger();
 
