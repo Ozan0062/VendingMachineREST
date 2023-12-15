@@ -5,7 +5,7 @@ namespace VendingMachineREST.Models
     public class UsersRepository
     {
         private readonly UsersDbContext? _context;
-        private readonly string generatedPassword = User.CreatePassword();
+        private string generatedPassword;
 
         public UsersRepository(UsersDbContext context) 
         {
@@ -49,7 +49,9 @@ namespace VendingMachineREST.Models
 
         public User? Add(User user)
         {
-            user.Password = generatedPassword;
+            string passwordForUser = User.CreatePassword();
+            generatedPassword = passwordForUser;
+            user.Password = passwordForUser;
             user.Validate();
             string numberToSend = user.MobileNumber;
             string nameToSend = user.FirstName;
